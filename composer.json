@@ -1,0 +1,26 @@
+{
+    "name": "fesor/chat-prototype",
+    "description": "Chat App Example",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Chat\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/framework-bundle": "^3.3@dev",
+        "sensio/framework-extra-bundle": "^3.0",
+        "symfony/web-profiler-bundle": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Protko",
+            "email": "fesors@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

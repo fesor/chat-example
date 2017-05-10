@@ -1,0 +1,6 @@
+client
+docker
+!docker/php/config
+!docker/php/entrypoint
+vendor
+var

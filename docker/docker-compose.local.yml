@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  app:
+    volumes:
+      - './..:/app'
+      - './php/entrypoint:/app/entrypoint'
+
+  nginx:
+    environment:
+      - VIRTUAL_HOST=chats.docker
+      - VIRTUAL_PORT=80

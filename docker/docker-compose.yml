@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  app:
+    image: ${REPOSITORY_PREFIX}php:${DOCKER_TAG}
+    build:
+        context: './../'
+        dockerfile: 'docker/php/Dockerfile'
+
+  nginx:
+    image: ${REPOSITORY_PREFIX}nginx:${DOCKER_TAG}
+    build:
+        context: './nginx/'

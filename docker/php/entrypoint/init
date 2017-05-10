@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+set -ex
+
+# Disable xdebug in production environment
+xdebug_config=/usr/local/etc/php/conf.d/xdebug.ini
+if [ -f $xdebug_config ] && [ "$SYMFONY_ENV" == "prod" ]; then
+    rm $xdebug_config
+fi
+# Prepare application
+bin/console cache:clear
+
+# Start Application
+php-fpm --allow-to-run-as-root
