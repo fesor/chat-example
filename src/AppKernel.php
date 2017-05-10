@@ -2,6 +2,9 @@
 
 namespace Chat;
 
+use Chat\Schema\ChatsSchemaDefinition;
+use Chat\Service\Doctrine\CompilePass\SchemaDefinitionCollector;
+use Chat\Service\Doctrine\SchemaDefinition;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -16,10 +19,13 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle()
+            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if ($this->getEnvironment() == 'dev') {
+            $bundles[] = new \Symfony\Bundle\TwigBundle\TwigBundle();
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }
 
@@ -51,6 +57,15 @@ class AppKernel extends Kernel
                 'intercept_redirects' => false,
             ));
         }
+
+        $c->addCompilerPass(new SchemaDefinitionCollector());
+
+        $loader->load(__DIR__ . '/Service/Doctrine/services.yml');
+
+        $c->register('schema_definition', ChatsSchemaDefinition::class)
+            ->setPublic(false)
+            ->addTag(SchemaDefinition::TAG_NAME)
+            ->setAutowired(true);
     }
 
     public function getCacheDir()

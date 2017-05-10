@@ -4,17 +4,28 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Chat\\": "src/"
+            "Chat\\": "src/",
+            "Chat\\Migrations\\": "etc/migrations",
+            "Chat\\Schema\\": "etc/schema"
         }
     },
     "require": {
         "symfony/framework-bundle": "^3.3@dev",
         "sensio/framework-extra-bundle": "^3.0",
-        "symfony/web-profiler-bundle": "^3.2"
+        "symfony/web-profiler-bundle": "^3.2",
+        "doctrine/doctrine-bundle": "^1.6",
+        "symfony/twig-bundle": "^3.2",
+        "doctrine/doctrine-migrations-bundle": "dev-feature/allow_diff_on_dbal as 1.3.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/fesor/DoctrineMigrationsBundle"
+        }
+    ],
     "license": "MIT",
     "authors": [
         {

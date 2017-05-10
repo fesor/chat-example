@@ -1,0 +1,9 @@
+services:
+  Chat\Service\Doctrine\SchemaDefinitionProvider: ~
+
+  doctrine.migrate.diff_command:
+    class: 'Chat\Service\Doctrine\Command\DbalMigrationDiff'
+    arguments:
+      - '@Chat\Service\Doctrine\SchemaDefinitionProvider'
+    tags:
+      - { name: console.command }

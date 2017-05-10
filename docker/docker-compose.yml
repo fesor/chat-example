@@ -6,8 +6,22 @@ services:
     build:
         context: './../'
         dockerfile: 'docker/php/Dockerfile'
+    environment:
+      - SYMFONY_ENV
+      - DB_NAME
+      - DB_HOST
+      - DB_USER
+      - DB_PASS
 
   nginx:
     image: ${REPOSITORY_PREFIX}nginx:${DOCKER_TAG}
     build:
         context: './nginx/'
+
+  database:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - PGPASSWORD=${DB_PASS}
