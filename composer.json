@@ -18,7 +18,8 @@
         "doctrine/doctrine-migrations-bundle": "dev-feature/allow_diff_on_dbal as 1.3.x-dev",
         "doctrine/orm": "^2.5",
         "beberlei/DoctrineExtensions": "^1.0",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "ramsey/uuid": "^3.6"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1"
