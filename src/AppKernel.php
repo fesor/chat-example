@@ -58,14 +58,7 @@ class AppKernel extends Kernel
             ));
         }
 
-        $c->addCompilerPass(new SchemaDefinitionCollector());
-
         $loader->load(__DIR__ . '/Service/Doctrine/services.yml');
-
-        $c->register('schema_definition', ChatsSchemaDefinition::class)
-            ->setPublic(false)
-            ->addTag(SchemaDefinition::TAG_NAME)
-            ->setAutowired(true);
     }
 
     public function getCacheDir()

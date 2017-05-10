@@ -21,6 +21,26 @@ return [
                     'password' => getenv('DB_PASS'),
                 ],
             ],
+            'types' => [
+                \DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME =>
+                    \DoctrineExtensions\Types\CarbonDateTimeType::class,
+            ],
+        ],
+        'orm' => [
+            'default_entity_manager' => 'default',
+            'auto_generate_proxy_classes' => '%kernel.debug%',
+            'entity_managers' => [
+                'default' => [
+                    'connection' => 'default',
+                    'mappings' => [
+                        'App' => [
+                            'type' => 'annotation',
+                            'dir' => realpath(__DIR__ . '/../../src/Model/Conversation'),
+                            'prefix' => 'Chat\\Model\\Conversation',
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
 
