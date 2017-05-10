@@ -15,7 +15,10 @@
         "symfony/web-profiler-bundle": "^3.2",
         "doctrine/doctrine-bundle": "^1.6",
         "symfony/twig-bundle": "^3.2",
-        "doctrine/doctrine-migrations-bundle": "dev-feature/allow_diff_on_dbal as 1.3.x-dev"
+        "doctrine/doctrine-migrations-bundle": "dev-feature/allow_diff_on_dbal as 1.3.x-dev",
+        "doctrine/orm": "^2.5",
+        "beberlei/DoctrineExtensions": "^1.0",
+        "nesbot/carbon": "^1.22"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1"
