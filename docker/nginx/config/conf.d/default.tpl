@@ -8,5 +8,6 @@ server {
 
 
     include directives/gzip.conf;
+    include ${APIDOC_CONFIG};
     include locations/php_api.conf;
 }

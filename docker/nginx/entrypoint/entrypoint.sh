@@ -3,7 +3,13 @@ set -ef
 
 conf="/etc/nginx/conf.d"
 ssl_cert="/certs/domain.crt"
-vars='\$NGINX_LISTEN_PORT \$SSL_CONFIG \$HTTP_TO_HTTPS_REDIRECT'
+vars='\$NGINX_LISTEN_PORT \$SSL_CONFIG \$HTTP_TO_HTTPS_REDIRECT \$APIDOC_CONFIG'
+
+if [ -n "$EXPOSE_APIDOC" ]; then
+    export APIDOC_CONFIG="locations/apidoc.conf"
+else
+    export APIDOC_CONFIG="empty.conf"
+fi
 
 if [ -f $ssl_cert ]; then
     NGINX_LISTEN_PORT="443 ssl"

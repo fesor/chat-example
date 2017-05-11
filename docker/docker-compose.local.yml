@@ -10,3 +10,10 @@ services:
     environment:
       - VIRTUAL_HOST=chats.docker
       - VIRTUAL_PORT=80
+      - EXPOSE_APIDOC=true
+
+  apidoc:
+    image: humangeo/aglio
+    volumes:
+      - './../etc/docs:/docs:ro'
+    command: ['--server', '-i', '/docs/index.md', '-h', '0.0.0.0', '-p', '3000']
