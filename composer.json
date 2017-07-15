@@ -5,12 +5,12 @@
     "autoload": {
         "psr-4": {
             "Chat\\": "src/",
-            "Chat\\Migrations\\": "etc/migrations",
-            "Chat\\Schema\\": "etc/schema"
+            "Chat\\Migrations\\": "config/migrations",
+            "Chat\\Schema\\": "config/schema"
         }
     },
     "require": {
-        "symfony/framework-bundle": "^3.3@dev",
+        "symfony/framework-bundle": "3.3.*",
         "sensio/framework-extra-bundle": "^3.0",
         "symfony/web-profiler-bundle": "^3.2",
         "doctrine/doctrine-bundle": "^1.6",

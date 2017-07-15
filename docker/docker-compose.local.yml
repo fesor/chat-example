@@ -15,5 +15,5 @@ services:
   apidoc:
     image: humangeo/aglio
     volumes:
-      - './../etc/docs:/docs:ro'
+      - './../config/docs:/docs:ro'
     command: ['--server', '-i', '/docs/index.md', '-h', '0.0.0.0', '-p', '3000']

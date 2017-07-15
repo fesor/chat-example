@@ -45,7 +45,7 @@ class AppKernel extends Kernel
 
     protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)
     {
-        $loadedConfig = require __DIR__ . '/../etc/config/config.php';
+        $loadedConfig = require __DIR__ . '/../config/config.php';
         foreach ($loadedConfig as $extension => $config) {
             $c->loadFromExtension($extension, $config);
         }
@@ -58,7 +58,7 @@ class AppKernel extends Kernel
             ));
         }
 
-        $loader->load(__DIR__ . '/Service/Doctrine/services.yml');
+        $loader->load(__DIR__ . '/../config/services.yml');
     }
 
     public function getCacheDir()

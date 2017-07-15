@@ -22,8 +22,7 @@ return [
                 ],
             ],
             'types' => [
-                \DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME =>
-                    \DoctrineExtensions\Types\CarbonDateTimeType::class,
+                \DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME => \DoctrineExtensions\Types\CarbonDateTimeType::class,
             ],
         ],
         'orm' => [
@@ -33,9 +32,10 @@ return [
                 'default' => [
                     'connection' => 'default',
                     'mappings' => [
-                        'App' => [
+                        'Chat' => [
+                            'is_bundle' => false,
                             'type' => 'annotation',
-                            'dir' => realpath(__DIR__ . '/../../src/Model/Conversation'),
+                            'dir' => realpath(__DIR__ . '/../src/Model/Conversation'),
                             'prefix' => 'Chat\\Model\\Conversation',
                         ],
                     ],

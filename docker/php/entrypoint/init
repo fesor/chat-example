@@ -9,7 +9,7 @@ if [ -f $xdebug_config ] && [ "$SYMFONY_ENV" == "prod" ]; then
     rm $xdebug_config
 fi
 # Prepare application
-bin/console cache:clear
+bin/console cache:warmup
 
 # Start Application
 php-fpm --allow-to-run-as-root
